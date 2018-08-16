@@ -1,6 +1,6 @@
 export interface IReactSearchBoxWebPartProps {
   /**
-   * Search results page url. 
+   * Search results page url.
    * Full url should be specified e.g. https://<your_tenant>.sharepoint.com/search/Pages/results.aspx.
    */
   searchResultsPageUrl: string;
@@ -10,4 +10,6 @@ export interface IReactSearchBoxWebPartProps {
   enableCustomPlaceHolder: boolean;
 
   customSearchLabel: string;
+
+  enableModernSearchSupport: boolean;
 }

@@ -34,7 +34,7 @@ describe("ReactSearchBox component tests:", () => {
     componentSearchInputHandlerSpy = sinon.spy(ReactSearchBox.prototype, "_handleInputChange");
 
     // mount the component.
-    searchBoxComponent = mount(<ReactSearchBox customSearchLabel={searchLabel} tenantUrl={tenantUrl} searchResultsPageUrl="" />);
+    searchBoxComponent = mount(<ReactSearchBox customSearchLabel={searchLabel} tenantUrl={tenantUrl} searchResultsPageUrl="" enableModernSearchSupport={false} />);
   });
 
   it("Should have one input", () => {
@@ -94,7 +94,7 @@ describe("ReactSearchBox component tests:", () => {
 
     // mount with different properties.
     let searchBoxComponent2: any =
-      mount(<ReactSearchBox customSearchLabel={searchLabel} tenantUrl={tenantUrl} searchResultsPageUrl={searchResultsPageUrl} />);
+      mount(<ReactSearchBox customSearchLabel={searchLabel} tenantUrl={tenantUrl} searchResultsPageUrl={searchResultsPageUrl} enableModernSearchSupport={false} />);
 
     const searchQuery: string = "test";
     searchBoxComponent2.setState({ searchQuery });
@@ -111,7 +111,7 @@ describe("ReactSearchBox component tests:", () => {
 
     // mount with different properties.
     let searchBoxComponent3: any =
-      mount(<ReactSearchBox customSearchLabel={searchLabel} tenantUrl={tenantUrl} searchResultsPageUrl={searchResultsPageUrl} />);
+      mount(<ReactSearchBox customSearchLabel={searchLabel} tenantUrl={tenantUrl} searchResultsPageUrl={searchResultsPageUrl} enableModernSearchSupport={false} />);
 
     const searchQuery: string = "contenttype:Site Page AND path:https://contoso.sharepoint.com";
     searchBoxComponent3.setState({ searchQuery });

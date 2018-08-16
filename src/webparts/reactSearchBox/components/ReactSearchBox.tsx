@@ -44,11 +44,11 @@ export default class ReactSearchBox extends React.Component<IReactSearchBoxProps
 
   /**
    * Search button event handler.
-   * @param event 
+   * @param event
    */
   private _handleSearch(event: any): void {
 
-    // if a page is specified in the search page results url property 
+    // if a page is specified in the search page results url property
     // then use it instead of the enterprise search results page.
     if (this.props.searchResultsPageUrl) {
 
@@ -61,12 +61,18 @@ export default class ReactSearchBox extends React.Component<IReactSearchBoxProps
     }
 
     // append the query string to the url.
-    this.ResultsPageUri += `?k=${this.state.searchQuery}`;
+    if (this.props.enableModernSearchSupport) {
+      this.ResultsPageUri += `?q=${this.state.searchQuery}`;
+    }
+    else {
+      this.ResultsPageUri += `?k=${this.state.searchQuery}`;
+    }
+
     this._redirect();
   }
 
   /**
-   * Redirects to the results page. 
+   * Redirects to the results page.
    * windows.location wrapper so stub can be created in the unit tests.
    */
   private _redirect(): void {

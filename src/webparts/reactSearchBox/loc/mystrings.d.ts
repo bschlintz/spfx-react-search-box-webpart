@@ -3,6 +3,7 @@ declare interface IReactSearchBoxStrings {
   BasicGroupName: string;
   DefaultSearchResultsPageUrlFieldLabel: string;
   EnableCustomSearchPlaceholderLabel: string;
+  EnableModernSearchSupportLabel: string;
   CustomSearchLabel: string;
   SearchLabel: string;
   CustomSearchPlaceholderModeOnAlert: string;

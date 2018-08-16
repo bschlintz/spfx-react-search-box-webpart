@@ -31,6 +31,7 @@ export default class ReactSearchBoxWebPart extends BaseClientSideWebPart<IReactS
       {
         searchResultsPageUrl: this.properties.searchResultsPageUrl,
         customSearchLabel: this.properties.customSearchLabel,
+        enableModernSearchSupport: this.properties.enableModernSearchSupport,
         tenantUrl: Utils.getTenantUrl(this.context.pageContext.site.absoluteUrl, this.context.pageContext.site.serverRelativeUrl)
       }
     );
@@ -44,7 +45,7 @@ export default class ReactSearchBoxWebPart extends BaseClientSideWebPart<IReactS
     if(!this.properties.customSearchLabel){
       this.properties.customSearchLabel = strings.SearchLabel;
     }
-    
+
     return new Promise<void>((resolve, reject) => {
 
       // hides the default search box web part from modern Site Page.
@@ -74,6 +75,9 @@ export default class ReactSearchBoxWebPart extends BaseClientSideWebPart<IReactS
                 PropertyPaneToggle('enableCustomPlaceHolder', {
                   label: strings.EnableCustomSearchPlaceholderLabel
                 }),
+                PropertyPaneToggle('enableModernSearchSupport', {
+                  label: strings.EnableModernSearchSupportLabel
+                }),
                 PropertyPaneTextField('customSearchLabel', {
                   label: strings.CustomSearchLabel
                 })
@@ -85,8 +89,8 @@ export default class ReactSearchBoxWebPart extends BaseClientSideWebPart<IReactS
     };
   }
 
-  /** 
-   *  If enableCustomPlaceHolder property is set to true will attempt to 
+  /**
+   *  If enableCustomPlaceHolder property is set to true will attempt to
    *  position the component below the actions section on the site page.
    *  Otherwise will add the webpart as normally do in the scroll page section.
    */
